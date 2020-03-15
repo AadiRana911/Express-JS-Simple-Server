@@ -2,9 +2,17 @@ const express = require('express');
 
 const app = express();
 
+
 app.get('/', (req, res) => {
     res.send('<h1>Getting Root</h1>');
 })
+
+app.use((req, res, next) => {
+    console.log('Hello');
+    // setTimeout(10)
+    next();
+})
+
 app.get('/profile', (req, res) => {
     res.send('<h1>Getting Profile</h1>');
 })
